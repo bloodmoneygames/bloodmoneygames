@@ -1,0 +1,66 @@
+@use "vars/base" as vars;
+@use "vars/media";
+@use "sass:color";
+
+.sr-only {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 0;
+  height: 0;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 50%);
+  display: none;
+  z-index: 1;
+}
+
+body {
+  &.menu-opened {
+    overflow: hidden;
+
+    .overlay {
+      display: block;
+    }
+
+    .page-layout {
+      transform: translate3d(315px, 0, 0);
+    }
+  }
+}
+
+.svg-loader {
+  position: absolute;
+  bottom: 0;
+  left: -9999px;
+  z-index: -999;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}

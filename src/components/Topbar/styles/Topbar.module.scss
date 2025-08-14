@@ -1,0 +1,11 @@
+@use "sass:color";
+@use "vars/media";
+
+.topbar {
+  display: none;
+  background-color: var(--app-bg);
+
+  @media (min-width: media.$screen-lg) {
+    display: block;
+  }
+}

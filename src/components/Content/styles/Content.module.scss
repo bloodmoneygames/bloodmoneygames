@@ -1,0 +1,70 @@
+.content {
+  font-size: 1rem;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--app-color-headings);
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  h3 {
+    font-size: 1.45rem;
+  }
+  
+  h4 {
+    font-size: 1.35rem;
+  }
+  
+  h5 {
+    font-size: 1.25rem;
+  }
+  
+  h6 {
+    font-size: 1.15rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  ul {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  a:not([class]) {
+    color: var(--app-color-link);
+    border-bottom: 1px dashed var(--app-color-link);
+    transition: 0.2s ease-in-out;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      border-bottom-color: transparent;
+    }
+  }
+}
+

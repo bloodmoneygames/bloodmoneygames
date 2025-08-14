@@ -1,0 +1,41 @@
+@use "vars/mixins";
+
+.likes {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1rem;
+
+  &Item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 1rem;
+
+    &[disabled] {
+      cursor: default;
+    }
+
+    &:hover {
+      svg {
+        opacity: 0.8;
+      }
+    }
+
+    svg {
+      display: block;
+
+      @include mixins.transition;
+    }
+
+    span {
+      font-weight: bold;
+      line-height: 1;
+    }
+  }
+}

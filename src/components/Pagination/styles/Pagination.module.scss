@@ -1,0 +1,80 @@
+@use "vars/base";
+@use "vars/mixins";
+
+.nav {
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px auto 300px;
+  margin-top: 3em;
+
+  > * {
+    font-size: 1rem;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: var(--app-color-primary);
+    border-radius: base.$border-radius-base;
+
+    @include mixins.transition;
+
+    &:hover {
+      color: #fff;
+      background-color: var(--app-color-accent);
+    }
+  }
+
+  ul {
+    list-style-type: none;
+  }
+}
+
+.navPages {
+  display: flex;
+  gap: 0.3em;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.navLink {
+  display: block;
+  background: var(--app-border-gradient);
+  padding: 1px;
+}
+
+.navLinkInner {
+  display: flex;
+  gap: 0.3em;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  background-color: var(--app-bg);
+  padding: 1em 1.25em;
+}
+
+.active {
+  font-weight: 600;
+  padding: 0.5em 1em;
+}
+
+.prev {
+  margin-right: auto;
+}
+
+.next {
+  margin-left: auto;
+}
+
+.dots {
+  display: flex;
+  align-self: flex-end;
+  margin: 0 0.2rem -0.2rem 0.2rem;
+}

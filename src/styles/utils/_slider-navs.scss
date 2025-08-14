@@ -1,0 +1,55 @@
+@use "vars/base" as vars;
+@use "vars/media";
+
+.slider-navs {
+  --swiper-pagination-bullet-horizontal-gap: 8px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  gap: 16px;
+
+  @media (min-width: media.$screen-sm) {
+    justify-content: flex-start;
+  }
+
+  &__nav {
+    width: 40px;
+    height: 60px;
+    border: 1px solid var(--cs-color-border);
+    display: none;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--app-color-secondary);
+
+    &--prev {
+      border-radius: vars.$border-radius-base 0 0 vars.$border-radius-base;
+    }
+
+    &--next{
+      border-radius: 0 vars.$border-radius-base vars.$border-radius-base 0;
+    }
+
+    &:hover {
+      opacity: 0.4;
+    }
+
+		.icon {
+			fill: var(--cs-color-white);
+		}
+
+    @media (min-width: media.$screen-sm) {
+      display: flex;
+    }
+  }
+
+  &__pages {
+    width: auto !important;
+  }
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--cs-color-meta);
+    border-radius: 0;
+}

@@ -1,0 +1,60 @@
+@use "vars/mixins";
+
+.bestGame {
+  $this: &;
+
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  max-width: 80px;
+
+  &__thumb {
+    border-radius: 15px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      border-radius: 15px;
+
+      @include mixins.transition;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 15px;
+      border: 3px solid var(--app-color-primary);
+      opacity: 0;
+    }
+
+    &--small {
+      max-width: 68px;
+    }
+  }
+
+  &__title {
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.1;
+    color: #fff;
+    padding: 6px 0 5px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  &:hover {
+    z-index: 1;
+
+    #{$this}__title {
+      opacity: 1;
+    }
+
+    #{$this}__thumb {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

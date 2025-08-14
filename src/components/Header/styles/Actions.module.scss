@@ -1,0 +1,66 @@
+@use "vars/media";
+@use "vars/base";
+@use "vars/mixins";
+
+.actions {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
+
+  @media (min-width: media.$screen-lg) {
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+
+  li {
+    list-style: none;
+    padding: 0;
+    position: relative;
+
+    @media (min-width: media.$screen-lg) {
+      margin: 0;
+    }
+  }
+
+  a {
+    display: inline-flex;
+    vertical-align: middle;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 13px 15px;
+    min-height: 3.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: base.$border-radius-base;
+    box-sizing: border-box;
+    border: 0;
+    position: relative;
+    z-index: 0;
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+
+    @include mixins.gradient-accent;
+
+    .icon {
+      fill: #fff;
+    }
+
+    &:hover {
+      background: var(--app-color-accent);
+      box-shadow: 0 0;
+      color: #fff;
+
+      &::after {
+        inset: 0;
+      }
+    }
+  }
+}

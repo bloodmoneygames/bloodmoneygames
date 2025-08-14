@@ -1,0 +1,20 @@
+@use "base";
+@use "colors";
+@use "sass:color";
+
+$color-input: black;
+$color-border: #fff;
+$height: 50px;
+$form-spacing: 15px;
+$padding: 19px 10px;
+$border-radius: base.$border-radius-base;
+$input-background: colors.$white;
+$shadow: 0 none;
+$font-family: base.$font-family-base;
+$font-size: 13px;
+$font-weight: 400;
+$line-height: 1;
+
+// Small
+$padding-small: 10px 12px;
+$height-small: 40px;

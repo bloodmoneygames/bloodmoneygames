@@ -1,0 +1,46 @@
+@mixin content-ul {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+    padding: 0 0 0 2rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.5em;
+      left: 0;
+      width: 0.5em;
+      height: 0.5em;
+      background: var(--app-color-link);
+    }
+  }
+}
+
+@mixin content-ol {
+  counter-reset: list 1;
+  margin: 0 0 2rem;
+  padding: 0;
+
+  li {
+    list-style: none;
+    padding: 0 0 0 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+
+    &::before {
+      counter-increment: list;
+      content: counter(list) ". ";
+      color: var(--app-color-link);
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-weight: 500;
+    }
+  }
+}

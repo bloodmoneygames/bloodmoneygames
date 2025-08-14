@@ -1,0 +1,20 @@
+.likes-info {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  &__item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1;
+    position: relative;
+    top: 1px;
+    color: #ffd93b;
+  }
+}

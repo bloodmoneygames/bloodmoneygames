@@ -1,0 +1,62 @@
+@use "vars/inputs";
+@use "vars/mixins";
+
+.input,
+.textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: inputs.$height;
+  padding: inputs.$padding;
+  border: 0;
+  border-radius: inputs.$border-radius;
+  background-color: var(--app-input-bg);
+  box-shadow: inputs.$shadow;
+  font-family: inputs.$font-family;
+  font-size: inputs.$font-size;
+  font-weight: inputs.$font-weight;
+  line-height: inputs.$line-height;
+  color: var(--app-color-input);
+  overflow: hidden;
+
+  @include mixins.transition;
+
+  @include mixins.placeholder {
+    font-weight: 400;
+    color: var(--app-color-input);
+    opacity: 0.5;
+    transition: opacity 0.5s;
+  }
+
+  &:focus {
+    @include mixins.placeholder {
+      opacity: 0;
+    }
+  }
+
+  &--small {
+    padding: inputs.$padding-small;
+    height: inputs.$height-small;
+  }
+
+  &--transparent {
+    border-color: var(--app-color-input-border);
+    background: transparent;
+
+    @include mixins.placeholder {
+      color: var(--app-color-input-border);
+    }
+  }
+}
+
+.textarea {
+  &[rows] {
+    height: auto;
+  }
+
+  &--small {
+    &[rows] {
+      height: 80px;
+    }
+  }
+}

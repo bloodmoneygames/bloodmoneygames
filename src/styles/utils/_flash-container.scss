@@ -1,0 +1,27 @@
+.flash-container {
+  position: relative;
+  text-align: center;
+
+  > noindex,
+  > p,
+  object,
+  iframe {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &.fullscreen {
+    border: none;
+    text-align: center;
+    background: #fff;
+
+    noindex,
+    p,
+    object,
+    embed,
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@use "vars/base";
+@use "vars/media";
+
+.contentBox {
+  border-radius: base.$border-radius-base;
+  background-color: var(--app-color-bg-transparent);
+  padding: 1rem;
+
+  &__thumb {
+    display: block;
+    float: left;
+    border-radius: base.$border-radius-base;
+    margin: 0 1rem 1rem 0;
+  }
+
+  @media (min-width: media.$screen-xs) {
+    padding: 2rem;
+  }
+}

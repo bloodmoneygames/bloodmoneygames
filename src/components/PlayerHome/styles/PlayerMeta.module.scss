@@ -1,0 +1,52 @@
+@use "vars/media";
+
+.playerMeta {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+  gap: 5px;
+
+  @media (min-width: media.$screen-sm) {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  &__item {
+    &:first-child {
+      width: 100%;
+
+      @media (min-width: media.$screen-xs) {
+        width: auto;
+        margin-right: auto;
+      }
+    }
+
+    &--last {
+      margin-left: auto;
+
+      @media (min-width: media.$screen-xs) {
+        margin-left: initial;
+      }
+    }
+  }
+}
+
+.rating-box {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  &__lbl {
+    display: none;
+    color: #fff;
+    margin-right: 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+
+    @media (min-width: media.$screen-sm) {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@use "vars/base";
+@use "vars/media";
+@use "vars/mixins";
+@use "sass:color";
+
+.navmenu {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: column nowrap;
+
+  @media (min-width: media.$screen-lg) {
+    flex-flow: row nowrap;
+  }
+
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    position: relative;
+
+    @media (min-width: media.$screen-lg) {
+      margin: 0;
+    }
+
+    &:not(.hidden-lg) {
+      a {
+        @media (min-width: media.$screen-lg) {
+          &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: rgb(255 255 255 / 50%);
+          }
+        }
+      }
+    }
+
+    &:nth-last-child(1 of :not(.hidden-lg)) {
+      a {
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    &.button {
+      a {
+        border-radius: base.$border-radius-base;
+
+        @include mixins.gradient-accent;
+      }
+    }
+  }
+
+  a {
+    justify-content: center;
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1;
+    padding: 5px 15px;
+    text-transform: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--app-color-headings);
+    }
+  }
+}
+
+@media (width <=1200px) {
+  .navmenu {
+    a {
+      font-size: 0.875rem;
+    }
+  }
+}

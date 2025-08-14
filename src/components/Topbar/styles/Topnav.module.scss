@@ -1,0 +1,62 @@
+@use "sass:color";
+@use "vars/media";
+
+.topnav {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+  left: -15px;
+
+  @media (min-width: media.$screen-lg) {
+    flex-flow: row nowrap;
+  }
+
+  li {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    position: relative;
+
+    @media (min-width: media.$screen-lg) {
+      margin: 0;
+    }
+
+    &:last-child {
+      a {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  a {
+    justify-content: center;
+    position: relative;
+    color: color.adjust(#fff, $alpha: -0.2);
+    text-decoration: none;
+    font-size: 0.875rem;
+    line-height: 1;
+    padding: 5px 15px;
+
+    @media (min-width: media.$screen-lg) {
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 5px;
+        bottom: 5px;
+        width: 1px;
+        background: color.adjust(#fff, $alpha: -0.8);
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--app-color-headings);
+    }
+  }
+}

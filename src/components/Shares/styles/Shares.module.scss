@@ -1,0 +1,10 @@
+.shares {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 3px;
+
+  button,
+  svg {
+    display: block;
+  }
+}

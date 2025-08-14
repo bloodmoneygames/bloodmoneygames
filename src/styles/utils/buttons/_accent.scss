@@ -1,0 +1,25 @@
+@use "vars/mixins";
+@use "sass:color";
+
+.btn {
+  &--accent {
+    position: relative;
+    color: #fff;
+    z-index: 0;
+
+    @include mixins.gradient-accent;
+
+    .icon {
+      fill: #fff;
+    }
+
+    &:hover {
+      background: var(--app-color-accent);
+      box-shadow: 0 0;
+
+      &::after {
+        inset: 0;
+      }
+    }
+  }
+}

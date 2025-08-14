@@ -1,0 +1,23 @@
+@use "sass:math";
+
+.featuredImage {
+  margin: 0 0 0.75rem;
+
+  div {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), #37134a);
+    }
+  }
+
+  img {
+    display: block;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+  }
+}

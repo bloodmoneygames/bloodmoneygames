@@ -1,0 +1,109 @@
+@use "vars/base" as vars;
+@use "vars/mixins";
+
+.content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: vars.$font-family-headings;
+    font-weight: 900;
+    padding: 0;
+    margin: 25px 0;
+    max-height: 1000000px;
+    line-height: 1.1;
+    color: var(--app-color-headings);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  h6 {
+    font-size: 1.1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    margin-bottom: 25px;
+  }
+
+  ul:not([class]) {
+    @include mixins.content-ul;
+  }
+
+  ol:not([class]) {
+    @include mixins.content-ol;
+  }
+
+  pre {
+    margin-bottom: 2rem !important;
+  }
+
+  code.inline {
+    font-size: 0.9rem;
+    color: var(--app-color-primary);
+    padding: 3px 5px;
+  }
+
+  blockquote {
+    border-left: 5px solid var(--app-color-accent);
+    font-style: italic;
+    padding: 0 0 0 2rem;
+    margin: 1rem 0 2rem;
+  }
+
+  b,
+  strong {
+    color: var(--app-color-text);
+    font-weight: 700;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  a:not([class]) {
+    color: var(--app-color-link);
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
+}

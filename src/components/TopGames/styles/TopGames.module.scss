@@ -1,0 +1,80 @@
+@use "vars/base";
+@use "vars/media";
+@use "vars/mixins";
+
+.topGames {
+  position: relative;
+  border-radius: 25px;
+
+  &Wrapper {
+    position: relative;
+  }
+
+  &Slider {
+    padding: 2rem 0 !important;
+  }
+
+  &Navs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &NavPrev,
+  &NavNext {
+    width: 40px;
+    height: 60px;
+    border: 1px solid var(--app-color-border);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--app-color-accent);
+
+    @media screen and (min-width: media.$container-lg) {
+      position: absolute;
+      top: 3.75rem;
+    }
+
+    svg {
+      fill: #fff;
+    }
+  }
+
+  &NavPrev {
+    left: -50px;
+    border-radius: base.$border-radius-base 0 0 base.$border-radius-base;
+    clip-path: url(#arrow-left-bg);
+
+    svg {
+      position: relative;
+      left: -1px;
+      transition: 0.2s ease-in-out;
+    }
+
+    &:hover {
+      svg {
+        left: -5px;
+      }
+    }
+  }
+
+  &NavNext {
+    right: -50px;
+    border-radius: 0 base.$border-radius-base base.$border-radius-base 0;
+    clip-path: url(#arrow-right-bg);
+
+    svg {
+      position: relative;
+      right: -1px;
+      transition: 0.2s ease-in-out;
+    }
+
+    &:hover {
+      svg {
+        right: -5px;
+      }
+    }
+  }
+}

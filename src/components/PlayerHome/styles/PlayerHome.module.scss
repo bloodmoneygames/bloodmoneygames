@@ -1,0 +1,26 @@
+@use "vars/base";
+
+.playerHome {
+  display: block;
+  margin: 0 0 2rem;
+  position: relative;
+  border-radius: base.$border-radius-base;
+  overflow: hidden;
+
+  &Image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  &Content {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(22px);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    background: var(--app-color-bg-transparent);
+  }
+}

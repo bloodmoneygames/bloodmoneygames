@@ -1,0 +1,118 @@
+@use "sass:color";
+@use "vars/media";
+@use "vars/base";
+
+.postCard {
+  $this: &;
+
+  position: relative;
+  margin-bottom: 25px;
+
+  &__thumb {
+    position: relative;
+    transition: 0.2s ease-in-out;
+    background: var(--cs-color-secondary);
+    border-radius: 25px;
+    overflow: hidden;
+
+    // box-shadow: 0 0 38px 0 transparentize($color-secondary, 0.53);
+
+    img {
+      transition: 0.2s ease-in-out;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  &__overlay-button {
+    background-color: var(--app-color-accent);
+  }
+
+  &__overlay-title {
+    font-size: 0.875rem;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  &__heading {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+    left: 5px;
+    right: 5px;
+    line-height: 1.2;
+    text-align: center;
+    background: var(--app-color-secondary);
+    padding: 5px 15px;
+    border-radius: base.$border-radius-base;
+    display: block;
+    color: #fff;
+    box-shadow: 0 2px 0 0 rgb(255 255 255 / 11%) inset;
+    z-index: 2;
+    opacity: 1;
+    transition: 0.2s ease-in-out;
+  }
+
+  &__title {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+    }
+  }
+
+  &:hover {
+    #{$this}__thumb {
+      border-radius: 25px;
+
+      // box-shadow: 0 2px 21px transparentize($color-primary, 0.53);
+
+      &::before {
+        background: var(--app-color-bg);
+      }
+    }
+
+    #{$this}__overlay {
+      opacity: 1;
+    }
+
+    #{$this}__heading {
+      opacity: 0;
+    }
+  }
+
+  &--full {
+    max-width: none;
+  }
+}

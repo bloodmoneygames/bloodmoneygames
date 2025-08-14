@@ -1,0 +1,66 @@
+@use "../colors";
+@use "sass:color";
+@use "sass:selector";
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector.append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root("::-webkit-input-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root("::-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-ms-input-placeholder") {
+    @content;
+  }
+}
+
+@mixin box-shadow {
+  box-shadow: 0 15px 38.34px 15.66px rgb(110 111 187 / 11%);
+}
+
+@mixin box-shadow-none {
+  box-shadow: 0 0;
+}
+
+@mixin gradient-bg {
+  background: #07161D;
+  background-image: linear-gradient(115deg, #07161D 0%, #180906 100%);
+}
+
+@mixin gradient-accent {
+  background: colors.$accent;
+  background: linear-gradient(180deg, colors.$accent 0%, color.adjust(colors.$accent, $lightness: -8%) 100%);
+}
+
+@mixin transition {
+  transition: 0.4s ease-in-out;
+}
+
+@mixin link-card {
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+  }
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}

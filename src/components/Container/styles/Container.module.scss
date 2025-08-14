@@ -1,0 +1,11 @@
+@use "vars/media";
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @media (min-width: media.$screen-lg) {
+    max-width: media.$container-lg;
+  }
+}

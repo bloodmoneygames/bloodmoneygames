@@ -1,0 +1,14 @@
+.promo {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+
+  &--top {
+    margin: 0 0 1rem;
+  }
+
+  &--bottom {
+    margin: 1rem 0;
+  }
+}

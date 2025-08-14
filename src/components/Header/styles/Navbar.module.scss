@@ -1,0 +1,67 @@
+@use "vars/media";
+@use "vars/base";
+@use "vars/mixins";
+
+.navbar {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 30px;
+  position: fixed;
+  z-index: 11;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--app-color-bg);
+  padding: 1rem 4.5rem 2rem 1rem;
+  overflow: hidden;
+  transform: translateX(100%);
+
+  @include mixins.transition;
+
+  @media screen and (min-width: media.$screen-lg) {
+    transform: translateX(0);
+  }
+
+  &Collapsed {
+    transform: translateX(0);
+  }
+
+  &__actions {
+    // 1
+  }
+
+  @media (min-width: media.$screen-lg) {
+    position: static;
+    background-color: transparent;
+    padding: 0;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 45px;
+  }
+
+  &.collapsed {
+    transform: translateX(100%);
+
+		@media (min-width: media.$screen-lg) {
+      transform: translateX(0);
+    }
+  }
+
+  &__search {
+    @media (min-width: media.$screen-lg) {
+      flex: 1;
+    }
+  }
+}
+
+.admin-bar {
+  .navbar {
+		@media (width <= 600px) {
+			padding-top: calc(1rem + 46px);
+		}
+
+		@media (width >= 600px) and (width <= 783px) {
+			padding-top: calc(1rem + 32px);
+		}
+  }
+}

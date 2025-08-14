@@ -1,0 +1,10 @@
+@use "vars/base";
+
+.player {
+  background-color: var(--app-color-bg-transparent);
+  border-radius: base.$border-radius-base;
+
+  &__actions {
+    margin: 0;
+  }
+}

@@ -1,0 +1,133 @@
+@use "vars/base" as vars;
+@use "vars/mixins";
+@use "vars/css-vars";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: vars.$font-size-base;
+  font-weight: vars.$font-weight-base;
+  min-height: 100%;
+
+  &.overlayed {
+    overflow: hidden;
+    height: 100%;
+
+    body {
+      overflow: hidden;
+      height: 100%;
+    }
+  }
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  font-family: vars.$font-family-base;
+  line-height: vars.$line-height-base;
+  color: var(--app-color-text);
+  background-color: var(--app-color-bg);
+  background-image: var(--app-gradient-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  z-index: 0;
+  mix-blend-mode: normal;
+
+  &.overlayed {
+    overflow: hidden;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+  max-height: 1000000px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: vars.$font-weight-headings;
+  padding: 0;
+  margin: 0 0 15px;
+  max-height: 1000000px;
+  line-height: 1.2;
+  color: var(--app-color-headings);
+}
+
+h1:not([class]) {
+  font-size: 1.571rem;
+}
+
+h2:not([class]) {
+  font-size: 1.429rem;
+}
+
+h3:not([class]) {
+  font-size: 1.3rem;
+}
+
+h4:not([class]) {
+  font-size: 1.125rem;
+}
+
+li,
+ol,
+ul {
+  max-height: 1000000px;
+}
+
+div {
+  max-height: 1000000px;
+}
+
+svg {
+  display: block;
+}
+
+figcaption {
+  color: #00000030;
+  font-size: 0.9em;
+  text-align: center;
+  font-style: italic;
+  margin-top: 0.6em;
+}
+
+.form-input {
+  outline: none;
+  transition: all 0.4s;
+  color: var(--app-color-text);
+  font-family: vars.$font-family-base;
+
+  @include mixins.placeholder {
+    font-weight: 400;
+    opacity: 1;
+    color: #a7a3a3;
+    transition: opacity 0.5s;
+    font-family: vars.$font-family-base;
+  }
+
+  &:focus {
+    @include mixins.placeholder {
+      opacity: 0;
+    }
+  }
+}
+
+.form-textarea {
+  resize: none;
+  height: 65px;
+}

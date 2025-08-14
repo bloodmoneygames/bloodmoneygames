@@ -1,0 +1,31 @@
+@use "vars/media";
+
+.header {
+  color: #fff;
+  background-color: rgba(0 0 0 / 30%);
+  position: relative;
+
+  &__bg-container {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0.2;
+  }
+
+  &__inner {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 45px;
+    height: 80px;
+  }
+
+  &__mobile {
+    @media (min-width: media.$screen-lg) {
+      display: none;
+    }
+  }
+}
+

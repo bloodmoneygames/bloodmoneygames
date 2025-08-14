@@ -1,0 +1,32 @@
+@use "vars/media";
+@use "vars/mixins";
+
+.bestGames {
+  position: relative;
+  background: var(--app-color-bg-transparent);
+  border-radius: 25px;
+  box-shadow: 0 2px 0 0 rgb(255 255 255 / 11%) inset;
+  padding: 15px;
+  margin-bottom: 30px;
+
+  &__heading {
+    text-align: center;
+    color: #fff;
+    margin: 0 0 15px;
+  }
+  
+  &__title {
+    font-size: 1.563rem;
+    font-weight: bold;
+    padding: 0;
+    line-height: 1;
+    margin: 0;
+  }
+  
+  &__items {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}

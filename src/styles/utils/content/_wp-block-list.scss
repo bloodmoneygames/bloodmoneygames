@@ -1,0 +1,9 @@
+@use "vars/mixins";
+
+ul.wp-block-list {
+  @include mixins.content-ul;
+}
+
+ol.wp-block-list {
+  @include mixins.content-ol;
+}
