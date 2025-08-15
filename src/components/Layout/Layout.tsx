@@ -33,10 +33,6 @@ const Layout: React.FC<ILayoutProps> = ({children}) => {
             <div className={styles.layout__content}>
               {children}
             </div>
-
-            <div className={styles.layout__side}>
-              <Sidebar/>
-            </div>
           </div>
         </Container>
       </div>
